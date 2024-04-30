@@ -25,10 +25,8 @@ export default class MyPlugin extends Plugin {
 
 	async onload() {
 		await this.loadSettings();
-		this.initOssClient();
-
 		this.addSettingTab(new SettingTab(this.app, this));
-
+		this.initOssClient();
 		this.registerEvent(
 			this.app.workspace.on('editor-paste', async (evt: ClipboardEvent, editor: Editor) => {
 				// 阻止默认的粘贴处理

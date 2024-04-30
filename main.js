@@ -35968,8 +35968,8 @@ var DEFAULT_SETTINGS = {
 var MyPlugin = class extends import_obsidian.Plugin {
   async onload() {
     await this.loadSettings();
-    this.initOssClient();
     this.addSettingTab(new SettingTab(this.app, this));
+    this.initOssClient();
     this.registerEvent(
       this.app.workspace.on("editor-paste", async (evt, editor) => {
         evt.preventDefault();
