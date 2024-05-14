@@ -160,6 +160,10 @@ class SettingTab extends PluginSettingTab {
 				.setPlaceholder('Enter the default directory')
 				.setValue(this.plugin.settings.dir)
 				.onChange(async (value) => {
+					// 如果dir没有以/结尾，则添加/
+					if (!value.endsWith('/')) {
+						value += '/';
+					}
 					this.plugin.settings.dir = value;
 					await this.plugin.saveSettings();
 				}));
